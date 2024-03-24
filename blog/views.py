@@ -4,7 +4,7 @@ from django.utils import timezone
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
 from django.contrib.auth.decorators import login_required
-from hitcount.views import HitCountDetailView
+
 
 from blog import models
 
