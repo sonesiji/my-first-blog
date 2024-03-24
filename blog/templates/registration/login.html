@@ -2,23 +2,23 @@
 
 {% block content %}
     {% if form.errors %}
-        <p>Your username and password didn't match. Please try again.</p>
+        <p style="color: red;">Your username and password didn't match. Please try again.</p>
     {% endif %}
 
-    <form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-        <table>
-        <tr>
-            <td>{{ form.username.label_tag }}</td>
-            <td>{{ form.username }}</td>
-        </tr>
-        <tr>
-            <td>{{ form.password.label_tag }}</td>
-            <td>{{ form.password }}</td>
-        </tr>
+    <form method="post" action="{% url 'login' %}" style="margin-top: 20px;">
+        {% csrf_token %}
+        <table style="width: 100%;">
+            <tr>
+                <td style="padding: 5px;"><label for="id_username" style="font-weight: bold;">Username:</label></td>
+                <td style="padding: 5px;">{{ form.username }}</td>
+            </tr>
+            <tr>
+                <td style="padding: 5px;"><label for="id_password" style="font-weight: bold;">Password:</label></td>
+                <td style="padding: 5px;">{{ form.password }}</td>
+            </tr>
         </table>
 
-        <input type="submit" value="login" />
+        <input type="submit" value="Login" style="margin-top: 10px; padding: 5px 10px; background-color: #3b5998; color: #fff; border: none; cursor: pointer;">
         <input type="hidden" name="next" value="{{ next }}" />
     </form>
 {% endblock %}

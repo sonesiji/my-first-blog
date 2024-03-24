@@ -1,0 +1,22 @@
+<!-- your_template.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Track Links</title>
+</head>
+<body>
+    <h1><a href="#" onclick="submitForm('{{ post.pk }}')">{{ post.title }}</a></h1>
+    <form id="clickForm" method="post" action="{% url 'track_link' %}" style="display: none;">
+        {% csrf_token %}
+        <input type="hidden" name="url" id="urlInput">
+    </form>
+</body>
+</html>
+
+<script>
+    function submitForm(pk) {
+        var url = "{% url 'post_detail' pk=0 %}".replace('0', pk);
+        document.getElementById('urlInput').value = url;
+        document.getElementById('clickForm').submit();
+    }
+</script>

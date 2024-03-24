@@ -1,0 +1,21 @@
+<!-- feedback_status.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback Status</title>
+</head>
+<body>
+    <h1>Your Feedback Status</h1>
+    <ul>
+        {% for item in feedback %}
+            <li>
+                <strong>Status:</strong> {{ item.status }}<br>
+                <strong>Message:</strong> {{ item.message }}<br>
+                <strong>Created At:</strong> {{ item.created_at }}
+            </li>
+        {% empty %}
+            <li>No feedback submitted.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
